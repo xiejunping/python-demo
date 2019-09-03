@@ -48,11 +48,13 @@ def join_images(image_files, rows, cols, width, height, save_file=None):
             im = Image.open(file_path)
             im = im.resize((width, height))
             im_data = np.array(im)
+            # 跳过透明头像
+            if im_data.shape == (64, 64, 4):
+            	continue
             if len(im_data.shape) == 2:
                 im_data = np.expand_dims(im_data, -1)
             x = col * width
             y = row * height
-            print (file_path)
             canvas[y: y + height, x: x + width, :] = im_data
     image = Image.fromarray(canvas)
     image.show()
