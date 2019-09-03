@@ -89,7 +89,7 @@ def calculate_align_way(image_num, force_align=False):
         return suggest_value, suggest_value + 1
 
 
-FOLDER = '.\\weixin\\avatars'
+FOLDER = 'avatars'
 
 if __name__ == '__main__':
     # 保存所有好友头像
